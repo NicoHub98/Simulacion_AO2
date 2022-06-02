@@ -37,6 +37,81 @@ function CalcularCongruencial(
   setArrayUniforme(newArrayU);
 }
 
+function CalcEj2(arrayUniforme, setArrayEj) {
+  let lambda = 120;
+
+  let newArray = [];
+  let tiempoAux, promAux;
+  let posAnt, promAnt, tiempoAct, posAct;
+
+  arrayUniforme.map((item, i) => {
+    // Cálculo del tiempo
+    if (item.num <= 0.95) {
+      tiempoAux = 3;
+    } else {
+      tiempoAux = -lambda * Math.log(1 - item.num);
+    }
+    // Cálculo del promedio
+    if (i === 0) {
+      promAnt = 0;
+      posAnt = 0;
+      posAct = 1;
+      tiempoAct = tiempoAux;
+    } else {
+      posAnt = i;
+      posAct = i + 1;
+
+      let aux;
+      aux = newArray.filter((item) => item.id === i - 1);
+      promAnt = aux.map((item) => item.promAux);
+
+      tiempoAct = tiempoAux;
+    }
+    promAux = (promAnt * posAnt + tiempoAct) / posAct;
+    newArray = [...newArray, { id: i, tiempoAux, promAux }];
+  });
+  setArrayEj(newArray);
+}
+
+function CalcEj3(arrayUniforme, setArrayEj) {
+  let tiempoTotal = 0;
+  let newArray = [];
+  let tiempoAux, promAux;
+  let posAnt, promAnt, tiempoAct, posAct;
+
+  arrayUniforme.map((item, i) => {
+    // Cálculo del tiempo
+    if (item.num < 0.5) {
+      tiempoAux = 2;
+    } else if (item.num >= 0.5 && item.num < 0.8) {
+      tiempoAux = 4;
+    } else {
+      tiempoAux = 6;
+    }
+    tiempoTotal += tiempoAux;
+    // Cálculo del promedio
+    if (i === 0) {
+      promAnt = 0;
+      posAnt = 0;
+      posAct = 1;
+      tiempoAct = tiempoAux;
+    } else {
+      posAnt = i;
+      posAct = i + 1;
+
+      let aux;
+      aux = newArray.filter((item) => item.id === i - 1);
+      promAnt = aux.map((item) => item.promAux);
+
+      tiempoAct = tiempoAux;
+    }
+    promAux = (promAnt * posAnt + tiempoAct) / posAct;
+    newArray = [...newArray, { id: i, tiempoAux, promAux }];
+  });
+  setArrayEj(newArray);
+  return tiempoTotal;
+}
+
 function CalcEj4(arrayUniforme, setArrayEj) {
   let a = 0,
     b = 55; //a+(b-a)*r
@@ -133,4 +208,49 @@ function CalcEj6(arrayUniforme, setArrayEj) {
   setArrayEj(newArray);
 }
 
-export { CalcularCongruencial, CalcEj4, CalcEj5, CalcEj6 };
+function CalcEj7(arrayUniforme, setArrayEj) {
+  let tiempoTotal = 0;
+  let newArray = [];
+  let tiempoAux, promAux;
+  let posAnt, promAnt, tiempoAct, posAct;
+
+  arrayUniforme.map((item, i) => {
+    // Cálculo del tiempo
+    if (item.num < 0.7) {
+      tiempoAux = 30;
+    } else {
+      tiempoAux = 55;
+    }
+    tiempoTotal += tiempoAux;
+    // Cálculo del promedio
+    if (i === 0) {
+      promAnt = 0;
+      posAnt = 0;
+      posAct = 1;
+      tiempoAct = tiempoAux;
+    } else {
+      posAnt = i;
+      posAct = i + 1;
+
+      let aux;
+      aux = newArray.filter((item) => item.id === i - 1);
+      promAnt = aux.map((item) => item.promAux);
+
+      tiempoAct = tiempoAux;
+    }
+    promAux = (promAnt * posAnt + tiempoAct) / posAct;
+    newArray = [...newArray, { id: i, tiempoAux, promAux }];
+  });
+  setArrayEj(newArray);
+  return tiempoTotal;
+}
+
+export {
+  CalcularCongruencial,
+  CalcEj2,
+  CalcEj3,
+  CalcEj4,
+  CalcEj5,
+  CalcEj6,
+  CalcEj7,
+};

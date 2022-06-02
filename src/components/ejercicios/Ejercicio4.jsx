@@ -4,16 +4,20 @@ import { CalcEj4 } from "../../functions/FuncGeneral";
 import Loading from "../Loading";
 
 const Ejercicio4 = () => {
-  const { arrayUniforme, arrayEj, setArrayEj } = useContext(GlobalContext);
+  const { arrayUniforme, arrayEj, setArrayEj, click } =
+    useContext(GlobalContext);
   const [load, setLoad] = useState(false);
   let a, b;
   useEffect(() => {
     CalcEj4(arrayUniforme, setArrayEj);
     setLoad(true);
-  }, []);
+  }, [, click]);
 
   return (
     <>
+      <div className="container text-center mt-3">
+        <h4>Ejercicio 4 - Verificación de estado de camiones</h4>
+      </div>
       {load ? (
         <table className="table table-striped">
           <thead>

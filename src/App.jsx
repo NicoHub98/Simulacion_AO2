@@ -5,7 +5,8 @@ import ListaEjercicios from "./components/ListaEjercicios";
 import { GlobalContext } from "./context/GlobalContext";
 
 function App() {
-  const [seed, setSeed] = useState(7343);
+  const [click, setClick] = useState(0);
+  const [seed, setSeed] = useState(7344);
   const [cteC, setCteC] = useState(4781);
   const [cteMult, setCteMult] = useState(9387);
   const [module, setModule] = useState(9999);
@@ -34,6 +35,8 @@ function App() {
         setModule,
         iteraciones,
         setIteraciones,
+        click,
+        setClick,
         arrayResultado,
         setArrayResultado,
         error,

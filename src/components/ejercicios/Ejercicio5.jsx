@@ -3,30 +3,21 @@ import { GlobalContext } from "../../context/GlobalContext";
 import { CalcEj5 } from "../../functions/FuncGeneral";
 import Loading from "../Loading";
 
-const Ejercicio5 = (refresh, setRefresh) => {
-  const {
-    arrayUniforme,
-    arrayEj,
-    setArrayEj,
-    seed,
-    cteC,
-    cteMult,
-    module,
-    iteraciones,
-  } = useContext(GlobalContext);
+const Ejercicio5 = () => {
+  const { arrayUniforme, arrayEj, setArrayEj, click } =
+    useContext(GlobalContext);
   const [load, setLoad] = useState(false);
   let a, b;
   useEffect(() => {
     CalcEj5(arrayUniforme, setArrayEj);
     setLoad(true);
-  }, [, seed, cteC, cteMult, module, iteraciones]);
-  //   if (refresh === "Y") {
-  //     CalcEj5(arrayUniforme, setArrayEj);
-  //     setRefresh("N");
-  //     console.log(arrayEj);
-  //   }
+  }, [, click]);
+
   return (
     <>
+      <div className="container text-center mt-3">
+        <h4>Ejercicio 5 - Tareas de picking (Carga de los pedidos o bultos)</h4>
+      </div>
       {load ? (
         <table className="table table-striped">
           <thead>

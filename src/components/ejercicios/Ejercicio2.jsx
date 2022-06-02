@@ -1,15 +1,15 @@
 import React, { useContext, useEffect, useState } from "react";
 import { GlobalContext } from "../../context/GlobalContext";
-import { CalcEj6 } from "../../functions/FuncGeneral";
+import { CalcEj2 } from "../../functions/FuncGeneral";
 import Loading from "../Loading";
 
-const Ejercicio6 = () => {
+const Ejercicio2 = () => {
   const { arrayUniforme, arrayEj, setArrayEj, click } =
     useContext(GlobalContext);
   const [load, setLoad] = useState(false);
   let a, b;
   useEffect(() => {
-    CalcEj6(arrayUniforme, setArrayEj);
+    CalcEj2(arrayUniforme, setArrayEj);
     setLoad(true);
   }, [, click]);
 
@@ -17,8 +17,9 @@ const Ejercicio6 = () => {
     <>
       <div className="container text-center mt-3">
         <h4>
-          Ejercicio 6 - Tareas de Despacho Verificación de cantidad de carga
-          necesaria
+          Ejercicio 2 - Verificación de stock demandado y, si hay faltante o si
+          corresponde el nivel de stock, realización de pedido al proveedor y
+          seguimiento del producto hasta la recepción del mismo
         </h4>
       </div>
       {load ? (
@@ -71,4 +72,4 @@ const Ejercicio6 = () => {
   );
 };
 
-export default Ejercicio6;
+export default Ejercicio2;

@@ -1,15 +1,16 @@
 import React, { useContext, useEffect, useState } from "react";
 import { GlobalContext } from "../../context/GlobalContext";
-import { CalcEj6 } from "../../functions/FuncGeneral";
+import { CalcEj3 } from "../../functions/FuncGeneral";
 import Loading from "../Loading";
 
-const Ejercicio6 = () => {
+const Ejercicio3 = () => {
   const { arrayUniforme, arrayEj, setArrayEj, click } =
     useContext(GlobalContext);
   const [load, setLoad] = useState(false);
+  const [tiempoTotal, setTiempoTotal] = useState(0);
   let a, b;
   useEffect(() => {
-    CalcEj6(arrayUniforme, setArrayEj);
+    setTiempoTotal(CalcEj3(arrayUniforme, setArrayEj));
     setLoad(true);
   }, [, click]);
 
@@ -17,8 +18,7 @@ const Ejercicio6 = () => {
     <>
       <div className="container text-center mt-3">
         <h4>
-          Ejercicio 6 - Tareas de Despacho Verificación de cantidad de carga
-          necesaria
+          Ejercicio 3 - Procesamiento y preparación del pedido del cliente.
         </h4>
       </div>
       {load ? (
@@ -27,7 +27,7 @@ const Ejercicio6 = () => {
             <tr>
               <th>ID</th>
               <th>Número</th>
-              <th>Tiempo</th>
+              <th>Tiempo (min)</th>
               <th>Promedio</th>
             </tr>
           </thead>
@@ -62,6 +62,12 @@ const Ejercicio6 = () => {
                 );
               })
             )}
+            <tr>
+              <th>Total:</th>
+              <th></th>
+              <th>{tiempoTotal}</th>
+              <th></th>
+            </tr>
           </tbody>
         </table>
       ) : (
@@ -71,4 +77,4 @@ const Ejercicio6 = () => {
   );
 };
 
-export default Ejercicio6;
+export default Ejercicio3;
