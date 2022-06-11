@@ -22,9 +22,11 @@ const ListaEjercicios = () => {
     setArrayResultado,
     arrayUniforme,
     setArrayUniforme,
+    ej1,
+    setEj1,
   } = useContext(GlobalContext);
   const [listaEjercicios, setListaEjercicios] = useState(true);
-  const [ej1, setEj1] = useState(false);
+
   const [ej2, setEj2] = useState(false);
   const [ej3, setEj3] = useState(false);
   const [ej4, setEj4] = useState(false);
@@ -57,7 +59,6 @@ const ListaEjercicios = () => {
               <button
                 className="btn btn-outline-primary"
                 onClick={() => {
-                  console.log("click");
                   CalcularCongruencial(
                     Number(seed),
                     cteC,
@@ -80,11 +81,11 @@ const ListaEjercicios = () => {
       {listaEjercicios && (
         <div className="accordion accordion-flush" id="accordionFlushExample">
           <AccordionItem
-            nombre="Ejercicio 1"
+            nombre="Ejercicio 1 - Recepción de pedidos de cliente"
             eID="1"
             setEj={setEj1}
             listaEj={setListaEjercicios}
-            info=""
+            info="La duración del pedido tiene distribución Normal. Media 3,5 minutos   desvío 0,8 minutos. Simular el tiempo y calcular el tiempo promedio."
           />
           <AccordionItem
             nombre="Ejercicio 2 - Verificación de stock demandado y, si hay faltante o si corresponde el nivel de stock, realización de pedido al proveedor y seguimiento del producto hasta la recepción del mismo."

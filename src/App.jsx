@@ -3,6 +3,7 @@ import Footer from "./components/Footer";
 import Formulario from "./components/Formulario";
 import ListaEjercicios from "./components/ListaEjercicios";
 import { GlobalContext } from "./context/GlobalContext";
+import "./styles/Style.css";
 
 function App() {
   const [click, setClick] = useState(0);
@@ -21,6 +22,8 @@ function App() {
   ]);
   const [arrayUniforme, setArrayUniforme] = useState([{ id: 0, num: 0 }]);
   const [arrayEj, setArrayEj] = useState([{ id: 0, tiempoAux: 0, promAux: 0 }]);
+
+  const [ej1, setEj1] = useState(false);
 
   return (
     <GlobalContext.Provider
@@ -44,6 +47,8 @@ function App() {
         arrayUniforme,
         arrayEj,
         setArrayEj,
+        ej1,
+        setEj1,
       }}
     >
       <h1 className="text-center my-3">Modelos y Simulación</h1>

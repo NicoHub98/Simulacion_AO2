@@ -9,8 +9,6 @@ const AccordionItem = ({ nombre, eID, setEj, listaEj, info }) => {
     cteMult,
     module,
     iteraciones,
-    arrayEj,
-    setArrayEj,
     setArrayResultado,
     arrayUniforme,
     setArrayUniforme,
@@ -53,7 +51,7 @@ const AccordionItem = ({ nombre, eID, setEj, listaEj, info }) => {
                 arrayUniforme
               );
             }}
-            className="btn btn-primary mb-2"
+            className="btn btn-primary m-2"
           >
             Ir al Ejercicio
           </button>

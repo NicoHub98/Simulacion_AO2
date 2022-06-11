@@ -1,5 +1,5 @@
 import React from "react";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { GlobalContext } from "../context/GlobalContext";
 import Error from "./Error";
 
@@ -16,7 +16,16 @@ const Formulario = () => {
     iteraciones,
     setIteraciones,
     error,
+    ej1,
   } = useContext(GlobalContext);
+
+  // if (ej1 === true) {
+  //   const cambiaIteraciones = document.getElementById("iteraciones");
+  //   cambiaIteraciones.disabled = true;
+  // } else {
+  //   const cambiaIteraciones = document.getElementById("iteraciones");
+  //   cambiaIteraciones.disabled = false;
+  // }
 
   return (
     <>
@@ -70,6 +79,7 @@ const Formulario = () => {
           Iteraciones:
         </label>
         <input
+          disabled
           type="number"
           className="form-control "
           id="iteraciones"
